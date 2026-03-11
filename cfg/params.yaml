@@ -40,7 +40,7 @@ dlio:
 
     preprocessing:
       cropBoxFilter:
-        size: 1.0
+        size: 1.25
       voxelFilter:
         res: 0.25
 
