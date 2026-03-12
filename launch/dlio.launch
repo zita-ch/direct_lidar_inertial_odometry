@@ -16,7 +16,7 @@
   <arg name="rviz" default="false"/>
   <arg name="output" default="screen"/>
 
-  <arg name="pointcloud_topic" default="/point_cloud_filter/lidar/point_cloud_filtered"/>
+  <arg name="pointcloud_topic" default="/lidar/point_cloud"/>
   <arg name="imu_topic" default="/sensors/imu"/>
 
   <!-- DLIO Odometry Node -->
