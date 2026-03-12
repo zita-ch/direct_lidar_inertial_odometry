@@ -91,6 +91,7 @@ endif()
 add_library(nanoflann STATIC
   src/nano_gicp/nanoflann.cc
 )
+add_dependencies(nanoflann ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(nanoflann ${PCL_LIBRARIES})
 
 # NanoGICP
@@ -98,6 +99,7 @@ add_library(nano_gicp STATIC
   src/nano_gicp/lsq_registration.cc
   src/nano_gicp/nano_gicp.cc
 )
+add_dependencies(nano_gicp ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(nano_gicp ${PCL_LIBRARIES} ${OpenMP_LIBS} nanoflann)
 
 # Odometry Node
