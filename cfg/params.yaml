@@ -23,7 +23,7 @@ dlio:
     dense:
       filtered: false
     sparse:
-      leafSize: 0.25
+      leafSize: 0.1
 
   odom:
 
@@ -36,37 +36,37 @@ dlio:
         gyro: true
         accel: true
         time: 3
-      bufferSize: 5000
+      bufferSize: 15000
 
     preprocessing:
       cropBoxFilter:
-        size: 1.25
+        size: 1.0
       voxelFilter:
-        res: 0.25
+        res: 0.03
 
     keyframe:
-      threshD: 1.0
-      threshR: 45.0
+      threshD: 0.5
+      threshR: 30.0
 
     submap:
       keyframe:
-        knn: 10
-        kcv: 10
-        kcc: 10
+        knn: 20
+        kcv: 20
+        kcc: 20
     gicp:
       minNumPoints: 64
       kCorrespondences: 16
-      maxCorrespondenceDistance: 0.5
-      maxIterations: 32
-      transformationEpsilon: 0.01
-      rotationEpsilon: 0.01
+      maxCorrespondenceDistance: 0.7
+      maxIterations: 48
+      transformationEpsilon: 0.001
+      rotationEpsilon: 0.001
       initLambdaFactor: 1e-9
 
     geo:
-      Kp: 4.5
-      Kv: 11.25
-      Kq: 4.0
-      Kab: 2.25
-      Kgb: 1.0
+      Kp: 5.0
+      Kv: 8.0
+      Kq: 5.0
+      Kab: 5.0
+      Kgb: 2.0
       abias_max: 5.0
       gbias_max: 0.5
