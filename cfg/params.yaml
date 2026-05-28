@@ -40,23 +40,23 @@ dlio:
 
     preprocessing:
       cropBoxFilter:
-        size: 1.0
+        size: 0.75
       voxelFilter:
         res: 0.03
 
     keyframe:
-      threshD: 0.5
+      threshD: 0.4
       threshR: 30.0
 
     submap:
       keyframe:
-        knn: 20
-        kcv: 20
-        kcc: 20
+        knn: 40
+        kcv: 30
+        kcc: 30
     gicp:
       minNumPoints: 64
-      kCorrespondences: 16
-      maxCorrespondenceDistance: 0.7
+      kCorrespondences: 20
+      maxCorrespondenceDistance: 0.5
       maxIterations: 48
       transformationEpsilon: 0.001
       rotationEpsilon: 0.001
@@ -68,5 +68,5 @@ dlio:
       Kq: 5.0
       Kab: 5.0
       Kgb: 2.0
-      abias_max: 5.0
-      gbias_max: 0.5
+      abias_max: 0.5
+      gbias_max: 0.1
