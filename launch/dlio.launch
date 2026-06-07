@@ -15,8 +15,15 @@
   <arg name="robot_namespace" default="robot"/>
   <arg name="rviz" default="false"/>
 
-  <arg name="pointcloud_topic" default="lidar"/>
-  <arg name="imu_topic" default="imu"/>
+  <arg name="pointcloud_topic" default="/rslidar_points"/>
+  <arg name="imu_topic" default="/rslidar_imu_data"/>
+
+  <!-- Lidar frame_id of the incoming point cloud (rslidar_sdk ros_frame_id) -->
+  <arg name="lidar_frame" default="rslidar"/>
+  <!-- Identity transform: DLIO base frame -> incoming lidar frame (rslidar).
+       args: x y z yaw pitch roll parent_frame child_frame -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="odom_base_to_rslidar"
+        args="0 0 0 0 0 0 $(arg robot_namespace)/lidar_as_odom_base $(arg lidar_frame)"/>
 
   <!-- DLIO Odometry Node -->
   <node ns="$(arg robot_namespace)" name="dlio_odom" pkg="direct_lidar_inertial_odometry" type="dlio_odom_node" output="screen" clear_params="true">

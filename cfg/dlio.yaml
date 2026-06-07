@@ -33,10 +33,13 @@ dlio:
 
   extrinsics:
     baselink2imu:
-      t: [ 0.006253, -0.011775, 0.007645 ]
-      R: [ 1.,  0.,  0.,
-           0.,  1.,  0.,
-           0.,  0.,  1. ]
+      # DLIO applies a_baselink = R * a_imu, so R must be R_(lidar<-imu).
+      # The official extrinsic_R is R_(imu<-lidar) (FAST-LIO convention), so use its transpose.
+      # t = -R_(lidar<-imu) * extrinsic_T (imu origin expressed in the lidar frame).
+      t: [-0.0042744, 0.0157518, 0.011212]
+      R: [ 0.,  0., -1.,
+          -1.,  0.,  0.,
+           0.,  1.,  0. ]
     baselink2lidar:
       t: [ 0.,  0.,  0. ]
       R: [ 1.,  0.,  0.,
